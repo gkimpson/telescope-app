@@ -41,6 +41,22 @@ My steps:
 - Change line 143 in telescope.php 'slow' => 0.4 & reload some requests
 - MODELS TAB...
 - Records all the CRUD options for your models along with request other useful info
+- EVENTS TAB...
+- php artisan make:event SomeEvent
+- open SomeEvent.php and add implements ShouldBroadcast to the class declaration
+- Change the SomeEvent.php as follows :
+    public $user;
+    
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+- Now hit the events route
 - 
 
 

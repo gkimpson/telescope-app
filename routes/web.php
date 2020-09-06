@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\SomeEvent;
 use App\Jobs\SomeJob;
 use App\User;
 use Illuminate\Support\Facades\Route;
@@ -65,4 +66,9 @@ Route::get('update/', function () {
     $user->name = 'Mr Admin';
     $user->save();
     return 'updated user';
+});
+
+Route::get('events/', function () {
+     event(new SomeEvent(User::find(1)));
+     return 'Event fired';
 });
