@@ -29,8 +29,20 @@ My steps:
 - throw any exception OR run a php artisan command with an incorrect parameter
 - e.g /error route
 - DUMPS TAB...
-- debug data without stopping the execution of the script
+- debug data without stopping the execution of the script dump-server isn't installed by default
+- https://beyondco.de/docs/laravel-dump-server/installation
+- composer require --dev beyondcode/laravel-dump-server
+- php artisan vendor:publish --provider="BeyondCode\DumpServer\DumpServerServiceProvider"
+- php artisan dump-server 
+- php artisan dump-server --format=html > dump.html (DO NOT SHOW THIS)
+- Now you can put regular dump statements in your code. Instead of dumping the output directly in the HTTP response, the dumped data will be shown inside of your terminal / the running artisan command. This is very useful, when you want to dump data from API requests, without having to deal with HTTP errors
+- QUERIES TAB...
+- Drill down and view sql query in a clean format & ability to log slow queries at ease
+- Change line 143 in telescope.php 'slow' => 0.4 & reload some requests
+- MODELS TAB...
+- Records all the CRUD options for your models along with request other useful info
 - 
+
 
 ### Tags in git
 creating :
