@@ -27,7 +27,10 @@ My steps:
 - Navigate to /jobs/1 in the browser... and view Jobs tab again (try horizon if possible)
 - EXCEPTIONS TAB...
 - throw any exception OR run a php artisan command with an incorrect parameter
-
+- e.g /error route
+- DUMPS TAB...
+- debug data without stopping the execution of the script
+- 
 
 ### Tags in git
 creating :
