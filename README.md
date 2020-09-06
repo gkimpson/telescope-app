@@ -22,6 +22,8 @@ My steps:
 - crontab -e & add this to the first line, use :wq to save & close in vim
 - * * * * * cd /Users/gavin/Projects/telescope-app && php artisan schedule:run >> /dev/null 2>&1 
 - EDITOR=nano crontab -e
+- JOBS TAB...
+- php artisan make:job SomeJob
 
 
 

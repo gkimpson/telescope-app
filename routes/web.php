@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\SomeJob;
+use App\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+  
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('jobs/{jobs}', function ($jobs) {
+    $user = User::find(1);
+
+    for ($i=0; $i < $jobs ; $i++) { 
+        SomeJob::dispatch($user);
+    }
+
+    return 'Jobs processing';
+});
