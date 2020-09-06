@@ -34,7 +34,7 @@ class SomeJob implements ShouldQueue
     public function handle()
     {
         sleep(4);
-        $message = 'SomeJon was completed!';
+        $message = 'SomeJob was completed!';
         Log::emergency('Emergency'.': '.$message);
         Log::alert('Alert'.': '.$message);
         Log::critical('Critical'.': '.$message);
