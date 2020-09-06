@@ -5,6 +5,10 @@ My steps:
 - composer require laravel/telescope
 - php artisan telescope:install
 - php artisan migrate
+- composer require laravel/ui
+- php artisan ui bootstrap --auth
+- Please run "npm install && npm run dev" to compile your fresh scaffolding
+-
 
 
 
