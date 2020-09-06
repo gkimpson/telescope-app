@@ -33,3 +33,7 @@ Route::get('jobs/{jobs}', function ($jobs) {
 
     return 'Jobs processing';
 });
+
+Route::get('error/', function () {
+    throw new \Exception("Error Processing Request", 1);
+});

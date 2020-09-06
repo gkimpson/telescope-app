@@ -24,7 +24,9 @@ My steps:
 - EDITOR=nano crontab -e
 - JOBS TAB...
 - php artisan make:job SomeJob
-
+- Navigate to /jobs/1 in the browser... and view Jobs tab again (try horizon if possible)
+- EXCEPTIONS TAB...
+- throw any exception OR run a php artisan command with an incorrect parameter
 
 
 ### Tags in git
@@ -36,7 +38,8 @@ git checkout v2.0.0
 1.0 - laravel setup
 1.1 - telescope setup
 1.2 - scheduler setup
-1.3 - 
+1.3 - jobs done and before laravel horizon install
+1.4 - 
 
 ### Users (password is password)
 admin@admin.com
