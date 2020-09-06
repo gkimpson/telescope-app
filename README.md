@@ -18,7 +18,10 @@ My steps:
 - php artisan inspire
 - php artisan make:model Todo -a (creates model, factory, seeder, controller, migration etc..)
 - SCHEDULER TAB...
-- Navigate to Console/Kernel.php
+- Navigate to Console/Kernel.php & change the schedule function to $schedule->command('inspire')->everyMinute()->storeOutput()
+- crontab -e & add this to the first line, use :wq to save & close in vim
+- * * * * * cd /Users/gavin/Projects/telescope-app && php artisan schedule:run >> /dev/null 2>&1 
+- EDITOR=nano crontab -e
 
 
 
@@ -30,7 +33,8 @@ git checkout v2.0.0
 
 1.0 - laravel setup
 1.1 - telescope setup
-1.2 - 
+1.2 - scheduler setup
+1.3 - 
 
 ### Users (password is password)
 admin@admin.com
