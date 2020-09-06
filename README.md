@@ -8,7 +8,8 @@ My steps:
 - composer require laravel/ui
 - php artisan ui bootstrap --auth
 - Please run "npm install && npm run dev" to compile your fresh scaffolding
--
+- Navigate to <yourapp>/telescope e.g 'http://telescope-app.test/telescope'
+- 
 
 
 
