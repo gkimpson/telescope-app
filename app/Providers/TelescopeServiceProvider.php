@@ -64,7 +64,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
     {
         Gate::define('viewTelescope', function ($user) {
             return in_array($user->email, [
-                'admin@admin.com'       // only works if not in local mode
+                'no@admin.com'       // only works if not in local mode
             ]);
         });
     }

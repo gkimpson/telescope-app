@@ -57,7 +57,17 @@ My steps:
         $this->user = $user;
     }
 - Now hit the events route
-- 
+- MAIL TAB...
+- in .env change the MAIL_MAILER to log (Was smtp)
+- Go to login page and do a password reset for admin@admin.com and then reload the Mail tab
+- NOTIFICATIONS TAB...
+- run php artisan make:notification InvoicePaid
+- open InvoicePaid - see via() you can use Twilio (sms) or slack as well as the default mail delivery channel
+- CACHE TAB...
+- php artisan cache:table
+- php artisan migrate
+- Remember user for 1 min, after 1 min refresh the cache again
+- Monitoring a tag (eg a single user id)
 
 
 ### Tags in git

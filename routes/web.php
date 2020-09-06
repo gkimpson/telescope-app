@@ -2,7 +2,9 @@
 
 use App\Events\SomeEvent;
 use App\Jobs\SomeJob;
+use App\Notifications\InvoicePaid;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,11 +36,13 @@ Route::get('jobs/{jobs}', function ($jobs) {
     return 'Jobs processing';
 });
 
-Route::get('error/', function () {
-    throw new \Exception("Error Processing Request", 1);
+Route::get('/error', function () {
+    $user = User::find(5);
+    $name = $user->name;
+    throw new \Exception("Error Processing Request {$name}", 1);
 });
 
-Route::get('dumps/', function () {
+Route::get('/dumps', function () {
     $user1 = User::find(1)->toArray();
     $user2 = User::find(2)->toArray();
     $user3 = User::find(3)->toArray();
@@ -51,24 +55,38 @@ Route::get('dumps/', function () {
     return 'All Dumps completed 💩💩!';
 });
 
-Route::get('ddumps/', function () {
+Route::get('/ddumps', function () {
     $user = User::find(3);
     dd($user);
 });
 
-Route::get('delete/', function () {
+Route::get('/delete', function () {
     $user = User::find(4)->delete();
     return 'Deleted user';
 });
 
-Route::get('update/', function () {
+Route::get('/update', function () {
     $user = User::find(1);
     $user->name = 'Mr Admin';
     $user->save();
     return 'updated user';
 });
 
-Route::get('events/', function () {
+Route::get('/events', function () {
      event(new SomeEvent(User::find(1)));
      return 'Event fired';
+});
+
+Route::get('/notifications', function () {
+    $user = User::find(1);
+    $user->notify(new InvoicePaid());
+    return 'Notification sent';
+});
+
+Route::get('/cache', function () {
+    $value = Cache::remember('user', 20, function() {
+        return User::find(1);
+    });
+
+    return 'User cached for 20 secs';
 });
