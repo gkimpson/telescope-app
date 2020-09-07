@@ -6,6 +6,8 @@ use App\Notifications\InvoicePaid;
 use App\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +39,8 @@ Route::get('jobs/{jobs}', function ($jobs) {
 });
 
 Route::get('/error', function () {
-    $user = User::find(5);
-    $name = $user->name;
-    throw new \Exception("Error Processing Request {$name}", 1);
+    $user = Auth::user();
+    throw new \Exception("Error Processing Request {$user->id}", 1);
 });
 
 Route::get('/dumps', function () {
@@ -67,7 +68,7 @@ Route::get('/delete', function () {
 
 Route::get('/update', function () {
     $user = User::find(1);
-    $user->name = 'Mr Admin';
+    $user->name = 'admin';
     $user->save();
     return 'updated user';
 });
